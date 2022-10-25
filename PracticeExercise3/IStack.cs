@@ -1,11 +1,17 @@
 ﻿using System;
 namespace PracticeExercise3
 {
-    public class IStack
+    public interface IStack<T>
     {
-        public IStack()
-        {
-        }
+        void Push(T item);
+
+        T Pop();
+
+        T Peek();
+
+        bool IsEmpty { get; }
+
+        int Length { get; }
     }
 }
 

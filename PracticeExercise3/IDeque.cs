@@ -1,11 +1,20 @@
 ﻿using System;
 namespace PracticeExercise3
 {
-    public class IDeque
+    public interface IDeque<T>
     {
-        public IDeque()
-        {
-        }
+        void AddFront(T item);
+        void AddBack(T item);
+
+        T RemoveFront();
+        T RemoveBack();
+
+        bool IsEmpty { get; }
+        int Length { get; }
+
+        T Front { get; }
+        T Back { get; }
+
     }
 }
 

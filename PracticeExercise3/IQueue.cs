@@ -1,11 +1,18 @@
 ﻿using System;
 namespace PracticeExercise3
 {
-    public class IQueue
+    public interface IQueue<T>
     {
-        public IQueue()
-        {
-        }
+        void Enqueue(T item);
+
+        T Dequeue();
+
+        T First { get; }
+        T Last { get; }
+
+        int Length { get; }
+        bool IsEmpty { get; }
+
     }
 }
 

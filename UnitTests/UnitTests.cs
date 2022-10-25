@@ -9,7 +9,7 @@ namespace UnitTests
         [TestMethod]
         public void TestStackPush()
         {
-            var stack = new Stack<int>();
+            var stack = new PracticeExercise3.Stack<int>();
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
@@ -26,7 +26,7 @@ namespace UnitTests
         {
             // judah
 
-            var stack = new Stack<int>();
+            var stack = new PracticeExercise3.Stack<int>();
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
@@ -38,14 +38,14 @@ namespace UnitTests
             Assert.AreEqual(13, stack.Pop());
             Assert.AreEqual("8\n5\n3\n2\n1\n", stack.ToString());
 
-            stack = new Stack<int>();
+            stack = new PracticeExercise3.Stack<int>();
 
             stack.Push(5);
             stack.Pop();
             Assert.AreEqual(0, stack.Length);
 
 
-            Assert.ThrowsException<EmptyStackException>( () =>
+            Assert.ThrowsException<EmptyStackException>(() =>
             {
                 stack.Pop();
             });
@@ -57,7 +57,7 @@ namespace UnitTests
         public void TestStackPeek()
         {
             // lou
-            var stack = new Stack<int>();
+            var stack = new PracticeExercise3.Stack<int>();
 
             stack.Push(1);
             stack.Push(2);
@@ -98,7 +98,7 @@ namespace UnitTests
         {
             // danny
 
-            var stack = new Stack<int>();
+            var stack = new PracticeExercise3.Stack<int>();
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
@@ -107,7 +107,7 @@ namespace UnitTests
 
             Assert.AreEqual(5, stack.Length);
 
-            var stack2 = new Stack<int>();
+            var stack2 = new PracticeExercise3.Stack<int>();
             stack2.Push(5);
             stack2.Push(10);
             stack2.Push(15);
@@ -118,7 +118,7 @@ namespace UnitTests
 
             Assert.AreEqual(7, stack2.Length);
 
-            var stack3 = new Stack<int>();
+            var stack3 = new PracticeExercise3.Stack<int>();
             stack3.Push(1);
 
             Assert.AreEqual(1, stack3.Length);
@@ -129,7 +129,7 @@ namespace UnitTests
         {
             // kelly
 
-            var stack = new Stack<int>();
+            var stack = new PracticeExercise3.Stack<int>();
 
             Assert.IsTrue(stack.IsEmpty);
 
@@ -157,15 +157,15 @@ namespace UnitTests
         public void TestQueueDequeue()
         {
             // lauren
-            Queue<int> queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
 
             for (int i = 1; i < 10; i++)
             {
                 queue.Enqueue(i);
             }
 
-            Assert.AreEqual( 1, queue.Dequeue());
-            Assert.AreEqual( 2, queue.Dequeue());
+            Assert.AreEqual(1, queue.Dequeue());
+            Assert.AreEqual(2, queue.Dequeue());
 
             Assert.AreEqual(7, queue.Length);
             Assert.AreEqual("<Back> 9 → 8 → 7 → 6 → 5 → 4 → 3 <Front>", queue.ToString());
@@ -191,7 +191,7 @@ namespace UnitTests
                 queue.Dequeue();
             });
 
-            Queue<int> queue1 = new Queue<int>();
+            var queue1 = new PracticeExercise3.Queue<int>();
             Assert.ThrowsException<EmptyQueueException>(() =>
             {
                 queue1.Dequeue();
@@ -203,7 +203,7 @@ namespace UnitTests
         public void TestQueueEnqueue()
         {
             // 
-            Queue<int> queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
 
             queue.Enqueue(1);
             queue.Enqueue(2);
@@ -227,9 +227,9 @@ namespace UnitTests
         {
             // savannah
 
-            var queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
 
-            Assert.ThrowsException<EmptyQueueException>( () =>
+            Assert.ThrowsException<EmptyQueueException>(() =>
             {
                 int i = queue.First;
             });
@@ -242,7 +242,7 @@ namespace UnitTests
 
             Assert.AreEqual(10, queue.Length);
 
-            for(int i=0; i <10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Assert.AreEqual(i, queue.First);
                 queue.Dequeue();
@@ -255,7 +255,7 @@ namespace UnitTests
         {
             // zach
 
-            var queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
             Assert.ThrowsException<EmptyQueueException>(() =>
             {
                 int x = queue.Last;
@@ -283,7 +283,7 @@ namespace UnitTests
         {
             // kenan
 
-            Queue<int> queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
 
             Assert.IsTrue(queue.IsEmpty);
 
@@ -308,7 +308,7 @@ namespace UnitTests
         {
             // john allen
 
-            Queue<int> queue = new Queue<int>();
+            var queue = new PracticeExercise3.Queue<int>();
             Assert.AreEqual(0, queue.Length);
 
             queue.Enqueue(1);
@@ -423,7 +423,7 @@ namespace UnitTests
             // kenan
             Deque<int> deque = new Deque<int>();
 
-            deque.AddBack(1); 
+            deque.AddBack(1);
             deque.AddBack(2);
             deque.AddBack(3);
             deque.AddBack(4);

@@ -1,40 +1,79 @@
 ﻿using System;
 namespace PracticeExercise3
 {
-    public class Deque : IDeque<T>
+    public class Deque<T> : IDeque<T>
     {
-
+        private LinkedList<T> linkedList;
 
         public Deque()
         {
+            linkedList = new LinkedList<T>();
         }
 
-        public bool IsEmpty => throw new NotImplementedException();
+        public bool IsEmpty => linkedList.Count == 0;
 
-        public int Length => throw new NotImplementedException();
+        public int Length => linkedList.Count;
 
-        public T Front => throw new NotImplementedException();
+        public T Front => IsEmpty ? throw new EmptyQueueException() : linkedList.Last.Value;
 
-        public T Back => throw new NotImplementedException();
+        public T Back => IsEmpty ? throw new EmptyQueueException() : linkedList.First.Value;
 
         public void AddBack(T item)
         {
-            throw new NotImplementedException();
+            linkedList.AddFirst(item);
         }
 
         public void AddFront(T item)
         {
-            throw new NotImplementedException();
+            linkedList.AddLast(item);
         }
 
         public T RemoveBack()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new EmptyQueueException();
+            }
+
+            var back = linkedList.First.Value;
+            linkedList.Remove(back);
+
+            return back;
+
         }
 
         public T RemoveFront()
         {
-            throw new NotImplementedException();
+
+            if (IsEmpty)
+            {
+                throw new EmptyQueueException();
+            }
+
+            var front = linkedList.Last.Value;
+            linkedList.Remove(front);
+
+            return front;
+        }
+
+        public override string ToString()
+        {
+            string result = "<Back> ";
+
+            var currentNode = linkedList.First;
+            while (currentNode != null)
+            {
+                result += currentNode.Value;
+                if (currentNode.Next != null)
+                {
+                    result += " → ";
+                }
+                currentNode = currentNode.Next;
+            }
+
+            result += " <Front>";
+
+            return result;
         }
     }
 }
